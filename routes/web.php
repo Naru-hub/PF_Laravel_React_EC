@@ -25,21 +25,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// 管理者用のゲストルート
-// Route::middleware('guest.admin')
+/**
+ * 管理者側ルーティング
+ */
 Route::prefix('admin')
     ->group(function () {
         Route::get('/login', function () {
-            return Inertia::render('Admin/Login'); // 管理者のログインページを表示
+            // 管理者のログインページを表示
+            return Inertia::render('Admin/Login');
         })->name('admin.login');
 
-        Route::post('/login', [AdminController::class, 'login']); // 管理者のログイン処理
-        // Route::get('/register', function () {
-        //     return Inertia::render('Admin/Register'); // 管理者の登録ページを表示
-        // })->name('admin.register');
+        // 管理者のログイン処理
+        Route::post('/login', [AdminController::class, 'login']);
 
-        // Route::post('/register', [AdminController::class, 'register']); // 管理者の登録処理
-        Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout'); // 管理者のログアウト処理
+        // 管理者のログアウト処理
+        Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');
     });
 
 // 管理者用の認証保護されたルート

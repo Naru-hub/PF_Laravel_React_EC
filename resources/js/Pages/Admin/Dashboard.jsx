@@ -2,7 +2,6 @@ import AdminAuthenticatedLayout from "@/Layouts/AdminAuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 
 export default function Dashboard({ auth }) {
-    console.log(auth); // authオブジェクトをコンソールに表示して内容を確認
     return (
         <AdminAuthenticatedLayout
             user={auth?.user}
@@ -18,7 +17,7 @@ export default function Dashboard({ auth }) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
-                            You're logged in!
+                            ログインしました。
                         </div>
                     </div>
                 </div>
